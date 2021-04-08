@@ -1,6 +1,6 @@
 import asyncio
 import os
-import time
+
 from pyrogram import (Client,
                       InlineKeyboardButton,
                       InlineKeyboardMarkup,
@@ -14,6 +14,7 @@ from helper.ytdlfunc import downloadvideocli, downloadaudiocli
 from PIL import Image
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
+import time as xcruz
 
 @Client.on_callback_query()
 async def catch_youtube_fmtid(c, m):
@@ -30,10 +31,11 @@ async def catch_youtube_fmtid(c, m):
         else:
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
                 "Video", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document",
-        await m.edit_message_reply_markup(buttons)
                                                                                                     callback_data=f"docvideo||{format_id}||{yturl}")]])
-    print('sleeping for a sec')
-    time.sleep(1)
+         print ('sleeping for a sec')
+         xcruz.sleep(1)
+        await m.edit_message_reply_markup(buttons)
+
     else:
         raise ContinuePropagation
 
