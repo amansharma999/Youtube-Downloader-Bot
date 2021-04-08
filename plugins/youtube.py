@@ -14,6 +14,8 @@ ytregex = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[
 @Client.on_message(Filters.regex(ytregex))
 async def ytdl(_, message):
     userLastDownloadTime = user_time.get(message.chat.id)
+    print('sleeping for 2 sec')
+    xcruz.sleep(2)
     try:
         if userLastDownloadTime > datetime.now():
             wait_time = round((userLastDownloadTime - datetime.now()).total_seconds() / 60, 2)
@@ -36,8 +38,7 @@ async def ytdl(_, message):
         return
     buttons = InlineKeyboardMarkup(list(create_buttons(formats)))
     sentm = await message.reply_text("Please wait 🤒🤕🙇")
-    print('sleeping for 2 sec')
-    xcruz.sleep(2)
+    
     
     try:
         # Todo add webp image support in thumbnail by default not supported by pyrogram
