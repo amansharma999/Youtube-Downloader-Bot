@@ -36,7 +36,9 @@ async def ytdl(_, message):
         return
     buttons = InlineKeyboardMarkup(list(create_buttons(formats)))
     sentm = await message.reply_text("Please wait 🤒🤕🙇")
-    xcruz.sleep(1)
+    print('sleeping for 2 sec')
+    xcruz.sleep(2)
+    
     try:
         # Todo add webp image support in thumbnail by default not supported by pyrogram
         # https://www.youtube.com/watch?v=lTTajzrSkCw
