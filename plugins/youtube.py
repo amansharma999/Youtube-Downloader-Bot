@@ -6,6 +6,7 @@ from helper.ytdlfunc import extractYt, create_buttons
 import wget
 import os
 from PIL import Image
+import time as xcruz
 
 ytregex = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$"
 
@@ -35,6 +36,7 @@ async def ytdl(_, message):
         return
     buttons = InlineKeyboardMarkup(list(create_buttons(formats)))
     sentm = await message.reply_text("Please wait 🤒🤕🙇")
+    xcruz.sleep(1)
     try:
         # Todo add webp image support in thumbnail by default not supported by pyrogram
         # https://www.youtube.com/watch?v=lTTajzrSkCw
