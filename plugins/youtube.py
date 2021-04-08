@@ -14,8 +14,8 @@ ytregex = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[
 @Client.on_message(Filters.regex(ytregex))
 async def ytdl(_, message):
     userLastDownloadTime = user_time.get(message.chat.id)
-    print('sleeping for 2 sec')
-    xcruz.sleep(2)
+    print('sleeping for a sec')
+    xcruz.sleep(1)
     try:
         if userLastDownloadTime > datetime.now():
             wait_time = round((userLastDownloadTime - datetime.now()).total_seconds() / 60, 2)
