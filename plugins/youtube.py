@@ -38,6 +38,8 @@ async def ytdl(_, message):
         return
     buttons = InlineKeyboardMarkup(list(create_buttons(formats)))
     sentm = await message.reply_text("Please wait 🤒🤕🙇")
+    print('sleeping for a sec')
+    xcruz.sleep(1)
     
     
     try:
